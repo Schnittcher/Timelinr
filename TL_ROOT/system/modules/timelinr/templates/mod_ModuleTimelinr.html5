@@ -1,0 +1,47 @@
+<script>
+jQuery.noConflict();
+		jQuery(function(){
+			jQuery().timelinr({
+				orientation: 	'vertical',
+				issuesSpeed: 	300,
+				datesSpeed: 	100,
+				arrowKeys: 		'true',
+				startAt:		1
+			})
+		});
+	</script>
+	
+
+
+<?php if ($this->headline): ?>
+
+<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+<div id="timlinr">
+	<div id="timeline">
+		<ul id="dates">
+<?php foreach ($this->Historie as $h): ?>		
+			<li><a href="#<?php echo $h["jahr"]; ?>" class="selected"><?php echo $h["jahr"]; ?></a></li>
+<?php endforeach; ?>  
+			</ul>
+
+		<ul id="issues">
+<?php foreach ($this->Historie as $h): ?>	
+			<li id="<?php echo $h["jahr"]; ?>" class="selected"><br />
+				<h1><?php echo $h["jahr"]; ?></h1>
+				<p><?php echo $h["bezeichnung"]; ?></p>
+			</li>
+<?php endforeach; ?> 
+		</ul>
+		<div id="grad_top"></div>
+		<div id="grad_bottom"></div>
+		<a href="#" id="next">+</a>
+		<a href="#" id="prev">-</a>
+	</div>
+</div>
+
+
+
+
+      
+
